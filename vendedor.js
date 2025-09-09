@@ -29,15 +29,16 @@ class Vendedor{
         this.#comissao = novaComissao;
     }
 
-    venderProduto() {
-
+    venderProduto(valorVenda) {
+        this.#comissao += valorVenda * 0.05;
+        return `Venda realizada por ${this.nome}. Comissão atual: R$ ${this.#comissao}`;
     }
 
     cadastrarVendendor() {
-
+        return `Vendedor ${this.nome} cadastrado com sucesso!`;
     }
 
     calcularComissao() {
-
+        return `Comissão total de ${this.nome}: R$ ${this.#comissao}`;
     }
 }

@@ -15,16 +15,24 @@ class Cliente {
     cadastrarCliente() {
         return `Cliente ${this.nome} cadastrado com sucesso!`;
     }
-    atualizarCliente() {
-
+    atualizarCliente(novoNome, novoEndereco, novoCep, novoUf) {
+        if (novoNome) this.nome = novoNome;
+        if (novoEndereco) this.endereco = novoEndereco;
+        if (novoCep) this.cep = novoCep;
+        if (novoUf) this.uf = novoUf;
+        return `Cliente ${this.nome} atualizado com sucesso!`;
     }
 
     excluirCliente() {
-
+        this.nome = null;
+        this.endereco = null;
+        this.cep = null;
+        this.uf = null;
+        return `Cliente excluído com sucesso!`;
     }
 
-    fazerPedido() {
-
+    fazerPedido(pedido) {
+        return `Pedido ${pedido.num_pedido} realizado pelo cliente ${this.nome}.`;
     }
 
     consultarCliente() {

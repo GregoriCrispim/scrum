@@ -10,30 +10,29 @@ class ItemPedido extends Produto{
         return this.#codigo_produto;
     }
 
-    setCodigo_produto(){
-        return this.#codigo_produto;
+    setCodigo_produto(novoCodigo){
+        this.#codigo_produto = novoCodigo;
     }
 
     adicionarItem(qtd) {
-    if (qtd > 0) {
-      this.qtd += qtd;
-      console.log(`Adicionado ${qtd} unidade(s). Total agora: ${this.qtd}`);
-    } else {
-      console.log("Quantidade inválida para adicionar.");
+        if (qtd > 0) {
+            this.qtd += qtd;
+            return `Adicionado ${qtd} unidade(s). Total agora: ${this.qtd}`;
+        } else {
+            return "Quantidade inválida para adicionar.";
+        }
     }
-  }
 
-  removerItem(qtd) {
-    if (qtd > 0 && qtd <= this.qtd) {
-      this.qtd -= qtd;
-      console.log(`Removido ${qtd} unidade(s). Total agora: ${this.qtd}`);
-    } else {
-      console.log("Quantidade inválida para remover.");
+    removerItem(qtd) {
+        if (qtd > 0 && qtd <= this.qtd) {
+            this.qtd -= qtd;
+            return `Removido ${qtd} unidade(s). Total agora: ${this.qtd}`;
+        } else {
+            return "Quantidade inválida para remover.";
+        }
     }
-  }
 
-  verificarItem() {
-    console.log(`Produto ${this.#codigo_produto} possui ${this.qtd} unidade(s).`);
-    return this.qtd;
-  }
+    verificarItem() {
+        return `Produto ${this.#codigo_produto} possui ${this.qtd} unidade(s).`;
+    }
 }

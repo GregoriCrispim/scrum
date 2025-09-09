@@ -38,23 +38,24 @@ export class Pedido {
   // Calcula o subtotal somando os preços dos itens
   calcularSubtotal() {
     const total = this.itens.reduce((soma, preco) => soma + preco, 0);
-    console.log(`Subtotal do pedido ${this.num_pedido}: R$ ${total}`);
+    return `Subtotal do pedido ${this.num_pedido}: R$ ${total}`;
   }
 
   // Atualiza o prazo de entrega do pedido
   atualizarPedido(novoPrazo) {
     this.prazo_entrega = novoPrazo; // usa o setter
-    console.log(`Pedido ${this.num_pedido} atualizado. Novo prazo: ${this.prazo_entrega}`);
+    return `Pedido ${this.num_pedido} atualizado. Novo prazo: ${this.prazo_entrega}`;
   }
 
   // Cancela o pedido
   cancelarPedido() {
-    console.log(`Pedido ${this.num_pedido} foi cancelado.`);
+    return `Pedido ${this.num_pedido} foi cancelado.`;
   }
 
   // Adiciona um item (preço) ao pedido
   adicionarItem(preco) {
     this.itens.push(preco);
+    return `Item de valor R$ ${preco} adicionado ao pedido ${this.num_pedido}.`;
   }
 }
 
@@ -65,16 +66,16 @@ console.log(pedido1.cod_cliente);    // 101 (acesso via getter)
 console.log(pedido1.cod_vendedor);   // 5001 (acesso via getter)
 console.log(pedido1.prazo_entrega);  // Data de hoje (atributo interno)
 
-pedido1.atualizarPedido(new Date("2025-09-15")); // Atualiza prazo
+console.log(pedido1.atualizarPedido(new Date("2025-09-15"))); // Atualiza prazo
 console.log(pedido1.prazo_entrega);  // Mostra a nova data
 
 // Adicionando itens ao pedido
-pedido1.adicionarItem(100);
-pedido1.adicionarItem(250);
-pedido1.adicionarItem(900);
+console.log(pedido1.adicionarItem(100));
+console.log(pedido1.adicionarItem(250));
+console.log(pedido1.adicionarItem(900));
 
 // Calcula o subtotal do pedido
-pedido1.calcularSubtotal(); // Subtotal do pedido 123: R$ 1250
+console.log(pedido1.calcularSubtotal()); // Subtotal do pedido 123: R$ 1250
 
 // Cancela o pedido
-pedido1.cancelarPedido();
+console.log(pedido1.cancelarPedido());
